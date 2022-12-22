@@ -71,18 +71,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //logout
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Boolean updtSession = db.upgradeSession("kosong", 1);
-                if(updtSession == true) {
-                    Toast.makeText(getApplicationContext(), "Berhasil Logout", Toast.LENGTH_SHORT).show();
-                    Intent loginIntent = new Intent(LoginActivity.this, LoginActivity.class);
-                    startActivity(loginIntent);
-                    finish();
-                }
-            }
-        });
+        //Keluar Aplikasi
+        exit.setOnClickListener(view ->  keluar());
+    }
+    private void keluar() {
+        finish();
+        System.exit(0);
     }
 }

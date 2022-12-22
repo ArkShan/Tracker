@@ -1,5 +1,6 @@
 package com.codewithshubh.covid19tracker;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             tv_death_new, tv_tests, tv_tests_new, tv_date, tv_time;
     private DrawerLayout drawer;
     private SwipeRefreshLayout swipeRefreshLayout;
-
+    private ActionBarDrawerToggle toggle;
     private PieChart pieChart;  //mengatifkan pie chart
     private LinearLayout lin_state_data, lin_world_data;
     private String str_confirmed, str_confirmed_new, str_active, str_active_new, str_recovered, str_recovered_new,
@@ -90,13 +91,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawerlayout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new HomeFragment()).commit();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.bringToFront();
 
         //CheckForUpdate();
         //untuk tittle bar pada toolbar
@@ -349,7 +355,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tv_time = findViewById(R.id.activity_main_time_textview);
 
         pieChart = findViewById(R.id.activity_main_piechart);
-        swipeRefreshLayout = findViewById(R.id.activity_main_swipe_refresh_layout);
+        swipeRefreshLayout = findViewById(R.id.drawerlayout);
         lin_state_data = findViewById(R.id.activity_main_statewise_lin);
         lin_world_data = findViewById(R.id.activity_main_world_data_lin);
     }
@@ -361,6 +367,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -374,7 +381,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new GlobalFragment()).commit();
                 break;
             case R.id.nav_logout:
-                Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();
+                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
                 break;
         }
 
