@@ -17,8 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private String appUrl;
     private TextView tv_confirmed, tv_confirmed_new, tv_active, tv_active_new, tv_recovered, tv_recovered_new, tv_death,
             tv_death_new, tv_tests, tv_tests_new, tv_date, tv_time;
-
+    private DrawerLayout drawer;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private PieChart pieChart;  //mengatifkan pie chart
@@ -79,6 +83,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(loginIntent);
             finish();
         }
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawerlayout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
         //CheckForUpdate();
         //untuk tittle bar pada toolbar
         getSupportActionBar().setTitle("Covid-19 Tracker (India)");
@@ -352,6 +366,12 @@ public class MainActivity extends AppCompatActivity {
         doubleBackToExitPressedOnce = true;
         backPressToast = Toast.makeText(this, "tekan sekali lagi untuk balik", Toast.LENGTH_SHORT);
         backPressToast.show();
+
+        if (drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
 
         new Handler().postDelayed(new Runnable() {
             @Override
