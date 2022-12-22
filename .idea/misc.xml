@@ -11,8 +11,14 @@
         <entry key="..\:/Users/Kantor/Downloads/Covif-19-master/Covif-19-master/app/src/main/res/layout/activity_state_wise_data.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Kantor/Downloads/Covif-19-master/Covif-19-master/app/src/main/res/layout/activity_world_data.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/drawable/ic_home.xml" value="0.1545" />
+        <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/activity_country_wise_data.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/activity_drawer.xml" value="0.25" />
-        <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/activity_each_country_data.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/activity_each_district_data.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/activity_each_state_data.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/fragment_global.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/layout/nav_header.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kantor/Downloads/Tracker/Track-Covid-19/app/src/main/res/menu/drawer_menu.xml" value="0.33" />
       </map>
